@@ -38,6 +38,7 @@ contains
   XLabeledEdit in 'XLabeledEdit.pas',
   XCheckBox in 'XCheckBox.pas',
   XGroupBox in 'XGroupBox.pas',
-  XEdit in 'XEdit.pas';
+  XEdit in 'XEdit.pas',
+  XButtonedEdit in 'XButtonedEdit.pas';
 
 end.

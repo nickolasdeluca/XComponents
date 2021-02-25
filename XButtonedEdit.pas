@@ -1,4 +1,4 @@
-unit XEdit;
+unit XButtonedEdit;
 
 interface
 
@@ -8,10 +8,10 @@ uses
   { System }
   System.SysUtils, System.Classes,
   { Vcl }
-  Vcl.Controls, Vcl.StdCtrls, Vcl.Themes;
+  Vcl.Controls, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Themes;
 
 type
-  TXEdit = class(TEdit)
+  TXButtonedEdit = class(TButtonedEdit)
   private
     { Private declarations }
   protected
@@ -29,12 +29,12 @@ implementation
 
 procedure Register;
 begin
-  RegisterComponents('XComponents', [TXEdit]);
+  RegisterComponents('XComponents', [TXButtonedEdit]);
 end;
 
-{ TXEdit }
+{ TXButtonedEdit }
 
-procedure TXEdit.DoSetTextHint(const Value: string);
+procedure TXButtonedEdit.DoSetTextHint(const Value: string);
 const
   EM_SETCUEBANNER = $1501;
 begin

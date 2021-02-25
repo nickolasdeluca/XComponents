@@ -3,22 +3,30 @@ unit XLabeledEdit;
 interface
 
 uses
+  { Winapi }
+  Winapi.Windows, Winapi.Messages,
+  { System }
   System.SysUtils, System.Classes, System.StrUtils,
-  Vcl.Controls, Vcl.StdCtrls, Vcl.ExtCtrls;
+  { Vcl }
+  Vcl.Controls, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Themes;
 
 type TMaskType = (mtNone, mtCPFCNPJ, mtIERG, mtCEP, mtTelefone, mtData, mtPlaca);
 
 type
   TXLabeledEdit = class(TLabeledEdit)
   private
+    { Private declarations }
     FOnChange: Boolean;
     FMaskType: TMaskType;
     procedure SetMaskType(const Value: TMaskType);
   protected
+    { Protected declarations }
     procedure Change; override;
+    procedure DoSetTextHint(const Value: string); override;
   public
-
+    { Public declarations }
   published
+    { Published declarations }
     property MaskType : TMaskType read FMaskType write SetMaskType;
   end;
 
@@ -238,6 +246,15 @@ begin
 
     FOnChange := False;
   end;
+end;
+
+procedure TXLabeledEdit.DoSetTextHint(const Value: string);
+const
+  EM_SETCUEBANNER = $1501;
+begin
+  inherited;
+  if CheckWin32Version(5, 1) and StyleServices.Enabled then
+    SendMessage(Handle, EM_SETCUEBANNER, wParam(1), Integer(PWideChar(Value)));
 end;
 
 procedure TXLabeledEdit.SetMaskType(const Value: TMaskType);
