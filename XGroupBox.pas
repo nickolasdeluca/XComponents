@@ -3,8 +3,11 @@ unit XGroupBox;
 interface
 
 uses
+  { Winapi }
   Winapi.Windows,
+  { System }
   System.SysUtils, System.Classes, System.Types,
+  { Vcl }
   Vcl.Controls, Vcl.StdCtrls, Vcl.Themes, Vcl.Graphics;
 
 type
@@ -20,14 +23,7 @@ type
     { Published declarations }
   end;
 
-procedure Register;
-
 implementation
-
-procedure Register;
-begin
-  RegisterComponents('XComponents', [TXGroupBox]);
-end;
 
 { TXGroupBox }
 

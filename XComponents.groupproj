@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7CD86908-6C15-4037-AA1F-326CED4B6289}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="rclXComponents.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclXComponents.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="rclXComponents">
+        <MSBuild Projects="rclXComponents.dproj"/>
+    </Target>
+    <Target Name="rclXComponents:Clean">
+        <MSBuild Projects="rclXComponents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="rclXComponents:Make">
+        <MSBuild Projects="rclXComponents.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclXComponents">
+        <MSBuild Projects="dclXComponents.dproj"/>
+    </Target>
+    <Target Name="dclXComponents:Clean">
+        <MSBuild Projects="dclXComponents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclXComponents:Make">
+        <MSBuild Projects="dclXComponents.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="rclXComponents;dclXComponents"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="rclXComponents:Clean;dclXComponents:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="rclXComponents:Make;dclXComponents:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

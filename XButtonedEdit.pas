@@ -23,14 +23,7 @@ type
     { Published declarations }
   end;
 
-procedure Register;
-
 implementation
-
-procedure Register;
-begin
-  RegisterComponents('XComponents', [TXButtonedEdit]);
-end;
 
 { TXButtonedEdit }
 

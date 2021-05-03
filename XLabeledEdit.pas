@@ -30,14 +30,7 @@ type
     property MaskType : TMaskType read FMaskType write SetMaskType;
   end;
 
-procedure Register;
-
 implementation
-
-procedure Register;
-begin
-  RegisterComponents('XComponents', [TXLabeledEdit]);
-end;
 
 function ReturnCleanString(StrToClean: String): String;
 var
@@ -58,8 +51,8 @@ end;
 
 procedure TXLabeledEdit.Change;
 var
-  wText : String;
-  i     : Integer;
+  wText: String;
+  i: Integer;
 begin
   if not (csDesigning in ComponentState) then
   begin
@@ -101,7 +94,7 @@ begin
           case Length(Text) of
             0..11:
             begin
-              { 083.766.599-01 }
+              { 000.000.000-00 }
               for i := 1 to 3 do
                 wText:=wText+IfThen(not (Text[i] = #0), Text[i], #0);
 
@@ -123,7 +116,7 @@ begin
 
             12..14:
             begin
-              { 03.847.655/0001-98 }
+              { 00.000.000/0000-00 }
               for i := 1 to 2 do
                 wText:=wText+IfThen(not (Text[i] = #0), Text[i], #0);
 

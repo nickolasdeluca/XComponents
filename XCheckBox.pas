@@ -3,8 +3,11 @@ unit XCheckBox;
 interface
 
 uses
+  { Winapi }
   Winapi.Messages, Winapi.Windows,
+  { System }
   System.SysUtils, System.Classes,
+  { Vcl }
   Vcl.Controls, Vcl.StdCtrls, Vcl.Graphics;
 
 type
@@ -23,16 +26,7 @@ type
     { Published declarations }
   end;
 
-procedure Register;
-
 implementation
-
-procedure Register;
-begin
-  RegisterComponents('XComponents', [TXCheckBox]);
-end;
-
-{ TXCheckBox }
 
 { TXCheckBox }
 

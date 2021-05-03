@@ -1,4 +1,4 @@
-package XComponents;
+package dclXComponents;
 
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
@@ -25,20 +25,20 @@ package XComponents;
 {$IMAGEBASE $400000}
 {$DEFINE RELEASE}
 {$ENDIF IMPLICITBUILDING}
+{$DESIGNONLY}
 {$IMPLICITBUILD ON}
 
 requires
-  rtl,
-  vcl,
-  dbrtl,
-  vcldb;
+  designide,
+  rclXComponents;
 
 contains
-  XDBGrid in 'XDBGrid.pas',
-  XLabeledEdit in 'XLabeledEdit.pas',
-  XCheckBox in 'XCheckBox.pas',
-  XGroupBox in 'XGroupBox.pas',
-  XEdit in 'XEdit.pas',
-  XButtonedEdit in 'XButtonedEdit.pas';
+  XDBGrid.Register in 'XDBGrid.Register.pas',
+  XLabeledEdit.Register in 'XLabeledEdit.Register.pas',
+  XCheckBox.Register in 'XCheckBox.Register.pas',
+  XGroupBox.Register in 'XGroupBox.Register.pas',
+  XEdit.Register in 'XEdit.Register.pas',
+  XButtonedEdit.Register in 'XButtonedEdit.Register.pas',
+  StringEditor.Register in 'StringEditor.Register.pas';
 
 end.
